@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+
+import style from "./App.module.scss";
+
+import OutputPosition from "./components/OutputPosition";
+import InputPosition from "./components/InputPosition";
+import Instructions from "./components/Instructions";
 
 function App() {
+  const [textareaValue, setTextareaValue] = useState("");
+
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextareaValue(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style["app"]}>
+      <div className={style["app__title"]}>Martian Robots</div>
+      <div className={style["app__position"]}>
+        <InputPosition
+          onChange={onChange}
+          onReset={() => setTextareaValue("")}
+          value={textareaValue}
+        />
+        <OutputPosition values="" />
+      </div>
+
+      <Instructions />
     </div>
   );
 }
