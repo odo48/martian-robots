@@ -6,11 +6,11 @@ const Instructions = () => {
       <div>
         <div className={style["instructions__subtitle"]}>Example Input</div>
         <div className={style["instructions__example"]}>
-          5 3 <br /> <br />
+          5 3 <br />
           1 1 E <br />
-          RFRFRFRF <br /> <br />
+          RFRFRFRF <br />
           3 2 N <br />
-          FRRFLLFFRRFLL <br /> <br />
+          FRRFLLFFRRFLL <br />
           0 3 W <br />
           LLFFFLFLFL <br />
         </div>
