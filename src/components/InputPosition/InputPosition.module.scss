@@ -6,6 +6,11 @@
     width: auto;
     align-self: center;
     margin-left: 32px;
+
+    &--moving {
+      transform: translateX(50px);
+      transition: 1s;
+    }
   }
 
   &__info {

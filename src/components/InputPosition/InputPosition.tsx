@@ -6,20 +6,15 @@ import MartianMoving from "assets/martian-moving.png";
 import MartianStay from "assets/martian-stay.png";
 
 const InputPosition = (props: IInputPosition) => {
-  const { value, onChange, onReset } = props;
+  const { value, onChange } = props;
 
   const [usedMartian, setUsedMartian] = useState(MartianStay);
-  const [buttonText, setButtonText] = useState("Test");
 
   const onTestHandle = () => {
-    if (usedMartian === MartianMoving) {
+    setUsedMartian(MartianMoving);
+    setTimeout(() => {
       setUsedMartian(MartianStay);
-      setButtonText("Test");
-      onReset();
-    } else {
-      setUsedMartian(MartianMoving);
-      setButtonText("Restart");
-    }
+    }, 1000);
   };
 
   return (
@@ -37,10 +32,17 @@ const InputPosition = (props: IInputPosition) => {
           onClick={onTestHandle}
           className={style["container__info-button"]}
         >
-          {buttonText}
+          Test
         </button>
       </div>
-      <img className={style["container__martian"]} src={usedMartian} />
+      <img
+        className={`${style["container__martian"]} ${
+          usedMartian === MartianMoving
+            ? style["container__martian--moving"]
+            : ""
+        }`}
+        src={usedMartian}
+      />
     </div>
   );
 };

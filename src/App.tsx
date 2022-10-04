@@ -17,11 +17,7 @@ function App() {
     <div className={style["app"]}>
       <div className={style["app__title"]}>Martian Robots</div>
       <div className={style["app__position"]}>
-        <InputPosition
-          onChange={onChange}
-          onReset={() => setTextareaValue("")}
-          value={textareaValue}
-        />
+        <InputPosition onChange={onChange} value={textareaValue} />
         <OutputPosition values="" />
       </div>
 
