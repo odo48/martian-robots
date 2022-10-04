@@ -2,26 +2,31 @@ import { useState } from "react";
 
 import IInputPosition from "./types";
 import style from "./InputPosition.module.scss";
+
 import MartianMoving from "assets/martian-moving.png";
 import MartianStay from "assets/martian-stay.png";
 
 const InputPosition = (props: IInputPosition) => {
-  const { value, onChange } = props;
+  const { value, onChange, onHandleTest } = props;
 
   const [usedMartian, setUsedMartian] = useState(MartianStay);
 
   const onTestHandle = () => {
-    setUsedMartian(MartianMoving);
-    setTimeout(() => {
-      setUsedMartian(MartianStay);
-    }, 1000);
+    const response = onHandleTest();
+
+    if (response) {
+      setUsedMartian(MartianMoving);
+      setTimeout(() => {
+        setUsedMartian(MartianStay);
+      }, 1000);
+    }
   };
 
   return (
     <div className={style["container"]}>
       <div className={style["container__info"]}>
         <div className={style["container__info-title"]}>
-          Please add instructions for little Marvin
+          Please add instructions for little Marvin <br />
         </div>
         <textarea
           onChange={onChange}
