@@ -1,3 +1,3 @@
 export default interface IOutputPosition {
-  values: string;
+  values?: string;
 }
